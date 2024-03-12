@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include <stdlid.h>
 
-int main(){
+int main(int argc, char* argv[]){
     printf("Ola mundinho");
-
-    return 0;
+exit (0);
 }
