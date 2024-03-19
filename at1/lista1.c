@@ -1,47 +1,56 @@
 #include <stdio.h>
-#include <stdlid.h>
-#include <locale.h>
+#include <stdlib.h>
 
 int compare(const void *a, const void *b) {
     return (*(int*)a - *(int*)b);
 }
 
-int main(){
-    setlocale(LC_ALL, "Portuguese");
-
-    int N;
-    printf("=== Insira os números ===\n");
-    scanf("%d", &N);
-
-    if (N <= 0) {
-        printf("Error: Insira números!\n");
-        return 0;
+int main() {
+    int n;
+    printf("Quantos números você deseja inserir? ");
+    scanf("%d", &n);
+    
+    if (n <= 0) {
+        printf("Número inválido. Encerrando o programa.\n");
+        return 1;
     }
 
-    int numbers[N];
-    printf("Insira os números inteiros:");
-    for (int i = 0; i < N; i++){
-        scanf("%d", &numbers[i];)
+    int *numbers = malloc(n * sizeof(int));
+    if (numbers == NULL) {
+        printf("Erro de alocação de memória.\n");
+        return 1;
     }
-
-    qsort(numbers, N, sizeof(int), compare);
-
+    
+    printf("Insira os %d números separados por espaços:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &numbers[i]);
+    }
+    
+    qsort(numbers, n, sizeof(int), compare);
+    
     int sum = 0;
-    int smallest = numbers[0];
-    int largest = numbers[N - 1];
-
-    for (int i = 0; i < N; i++) {
+    int min = numbers[0];
+    int max = numbers[n - 1];
+    
+    for (int i = 0; i < n; i++) {
         sum += numbers[i];
     }
-
-    printf("Quantidade de números: %d\n", N);
-    printf("Média dos números: %.2f\n", (float)sum/N);
-    printf("Menor número: %d\n", smallest);
-    printf("Maior númeor: %d\n", largest);
-    printf("Números em ordem crescente:");
-    for (int i = 0; i < N; i++){
-        printf("%d", numbers[i]);
+    
+    float average = (float)sum / n;
+    
+    printf("Quantidade de números inseridos: %d\n", n);
+    printf("Valor médio dos números: %.1f\n", average);
+    printf("Menor número: %d\n", min);
+    printf("Maior número: %d\n", max);
+    printf("Números em ordem crescente: ");
+    
+    for (int i = 0; i < n; i++) {
+        printf("%d ", numbers[i]);
     }
+    
     printf("\n");
-return 0;
+    
+    free(numbers);
+    
+    return 0;
 }
