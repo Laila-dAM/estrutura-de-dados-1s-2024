@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlid.h>
+#include <locale.h>
 
-int main(int argc, char* argv[]){
-    printf("Ola mundinho");
-exit (0);
+int c(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
 }
