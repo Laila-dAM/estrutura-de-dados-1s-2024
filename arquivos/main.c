@@ -3,6 +3,6 @@
 
 int main(int argc, char* argv[]){
 
-    printf("Ola arquivo.txt");
+    fprintf("Ola arquivo.txt");
     exit(0);
 }
