@@ -41,4 +41,18 @@ int main(int argc, char *argv[]) {
     qsort(numeros, quantidade_numeros, sizeof(int), compara);
 
     FILE *arquivo_saida = fopen("saida.txt", "w");
+if (arquivo_saida == NULL){
+    printf("Erro ao abrir o arquivo de saída\n");
+    free(numeros);
+    return 1;
+}
+
+for (int i=0; i < quantidade_numeros; i++){
+    fprintf(arquivo_saida, "%d\n", numeros[i]);
+}
+
+fclose(arquivo_saida);
+free(numeros);
+printf("Arquivo de saida 'saida.txt' gerado com sucesso :D\n");
+return 0;
 }
