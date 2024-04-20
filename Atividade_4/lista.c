@@ -33,3 +33,15 @@ void lista_inserir_final(No* L, char dado) {
     }
 }
 
+void lista_imprimir(No* L){
+    No* atual = L->proximo;
+    while (atual != NULL){
+        printf("%c ->", atual->dado);
+        atual = atual->proximo;
+    }
+    printf("NULL\n");
+}
+
+int lista_verificar_existencia(No* L, char valor_busca){
+    No* atual = L->proximo;
+}
