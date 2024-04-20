@@ -44,4 +44,26 @@ void lista_imprimir(No* L){
 
 int lista_verificar_existencia(No* L, char valor_busca){
     No* atual = L->proximo;
+
+    while (atual != NULL){
+        if (atual->dado == valor_busca){
+            return 1;
+        }
+        atual = atual->proximo;
+    }
+    return 0;
 }
+
+int lista_verifica_ocorrencias(No* L, char valor_busca){
+    int ocorrencias = 0;
+    No* atual = L->proximo;
+    while (atual != NULL){
+        if (atual->dado == valor_busca) {
+            ocorrencias++;
+        }
+
+        atual = atual->proximo;
+    }
+    return ocorrencias;
+}
+
