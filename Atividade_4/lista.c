@@ -67,3 +67,27 @@ int lista_verifica_ocorrencias(No* L, char valor_busca){
     return ocorrencias;
 }
 
+void lista_imprimir_inversa(No* L) {
+    if (L->proximo != NULL) {
+        lista_imprimir_inversa(L->proximo);
+        printf("%c ->", L->dado);
+    }
+}
+
+void lista_inserir_no_i(No* L, int i, char dado) {
+    No* novo = (No*)malloc(sizeof(No));
+    if (novo != NULL){
+        novo->dado = dado;
+        No* atual = L;
+        for (int j = 0; j < i && atual->proximo !=NULL; j++){
+            atual = atual->proximo;
+        }
+        novo->proximo = atual->proximo;
+        atual->proximo = novo;
+    }
+
+    else {
+        printf("Erro: não foi possível alocar memória para o novo nó,\n");
+        exit(EXIT_FAILURE);
+    }
+}
