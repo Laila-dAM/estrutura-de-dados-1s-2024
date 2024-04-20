@@ -91,3 +91,43 @@ void lista_inserir_no_i(No* L, int i, char dado) {
         exit(EXIT_FAILURE);
     }
 }
+
+void lista_remover_no_i(No* L, int i) {
+    No* atual = L;
+
+    for (int j=0; j < i && atual->proximo !=NULL; j++){
+        atual = atual->proximo;
+
+    }
+
+    if (atual->proximo != NULL){
+        No* temp = atual->proximo;
+        atual->proximo = temp->proximo;
+        free(temp);
+    }
+}
+
+void lista_remover_no(No* L, char valor_busca) {
+    No* atual = L;
+    while (atual->proximo != NULL){
+        if (atual->proximo->dado == valor_busca){
+            No* temp = atual->proximo;
+            atual->proximo = temp->proximo;
+            free(temp);
+        }
+
+        else {
+            atual = atual->proximo;
+        }
+    }
+}
+
+void lista_destruir(No* L){
+    No* atual = L->proximo;
+    while (atual != NULL) {
+        No* temp = atual;
+        atual = atual->proximo;
+        free(temp);
+    }
+    free(L);
+}
