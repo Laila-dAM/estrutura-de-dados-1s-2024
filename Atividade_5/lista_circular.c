@@ -55,6 +55,29 @@ void remover_no(No** inicio, char valor) {
                 temp->proximo = (*inicio)->proximo;
                 *inicio = (*inicio)->proximo;
             }
+            free(atual);
+            return;
         }
+        anterior = atual;
+        atual = atual->proximo;
+    } 
+    while(atual != *inicio);
+    printf("Nó com valor %c não encontrado na lista", valor);
+}
+
+void liberar_lista(No** inicio){
+    if(*inicio == NULL){
+        return;
     }
+    No* atual = *inicio;
+    No* proximo;
+
+    do {
+        proximo = atual->proximo;
+        free(atual);
+        atual = proximo;
+    }
+    while(atual != *inicio);
+
+    *inicio = NULL;
 }
