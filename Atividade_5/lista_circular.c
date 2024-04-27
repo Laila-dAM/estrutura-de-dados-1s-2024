@@ -32,3 +32,29 @@ void imprimir_lista(No* inicio) {
     }
     while (temp != inicio);
 }
+
+void remover_no(No** inicio, char valor) {
+    if(*inicio == NULL) {
+        printf("Lista vazia, nenhum nó para remover.");
+        return;
+    }
+
+    No* atual = *inicio;
+    No* anterior = NULL;
+
+    do {
+        if(atual->valor == valor){
+            if(anterior != NULL){
+                anterior->proximo = atual->proximo;
+            }
+            else {
+                No* temp = *inicio;
+                while(temp->proximo != *inicio){
+                    temp = temp->proximo;
+                }
+                temp->proximo = (*inicio)->proximo;
+                *inicio = (*inicio)->proximo;
+            }
+        }
+    }
+}
