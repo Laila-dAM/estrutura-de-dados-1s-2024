@@ -11,4 +11,9 @@ int main(int argc, char *argc[]){
         printf("Uso: %s <arquivo.csv>\n", argv[0]);
         return 1;
     }
+    FILE *arquivo = fopen(argv[1], "r");
+    if(arquivo == NULL){
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
 }
