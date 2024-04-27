@@ -46,4 +46,11 @@ int main(int argc, char *argc[]){
         soma_numerador += (pontos[i].x - media_x) * (pontos[i].y - media_y);
         soma_denominador += (pontos[i].x - media_x) * (pontos[i].x - media_x); 
     }
+    float inclinacao = soma_numerador / soma_denominador;
+    float interceptacao = media_y - inclinacao * media_x;
+
+    printf("y = %.2fx + %2.f\n", inclinacao, interceptacao);
+    free(pontos);
+
+    return 0;
 }
