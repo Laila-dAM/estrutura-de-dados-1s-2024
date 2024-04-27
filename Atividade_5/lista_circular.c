@@ -15,5 +15,20 @@ void inserir_no(No** inicio, char valor) {
         while(temp->proximo != *inicio){
             temp = temp->proximo;
         }
+        temp->proximo = novo_no;
+        novo_no->proximo = *inicio;
     }
+}
+
+void imprimir_lista(No* inicio) {
+    if(inicio == NULL) {
+        printf("Lista vázia.");
+        return;
+    }
+    No* temp = inicio;
+    do {
+        printf("%c ", temp->valor);
+        temp = temp->proximo;
+    }
+    while (temp != inicio);
 }
