@@ -39,4 +39,11 @@ int main(int argc, char *argc[]){
         media_x += pontos[i].x;
         media_y += pontos[i].y;
     }
+    media_x /= num_pontos;
+    media_y /= num_pontos;
+    float soma_numerador = 0, soma_denominador = 0;
+    for (i = 0; i < num_pontos; i++) {
+        soma_numerador += (pontos[i].x - media_x) * (pontos[i].y - media_y);
+        soma_denominador += (pontos[i].x - media_x) * (pontos[i].x - media_x); 
+    }
 }
