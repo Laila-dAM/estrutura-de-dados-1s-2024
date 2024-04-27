@@ -28,4 +28,15 @@ int main(int argc, char *argc[]){
         printf("Erro de alocação de memória.\n");
         return 1;
     }
+    int i = 0;
+    while (fscanf(arquivo, "%d, %f", &pontos[i].x, &ponto[i].y) == 2){
+        i++;
+    }
+    fclose(arquivos);
+
+    float media_x = 0, media_y = 0;
+    for (i = 0; i < num_pontos; i++) {
+        media_x += pontos[i].x;
+        media_y += pontos[i].y;
+    }
 }
