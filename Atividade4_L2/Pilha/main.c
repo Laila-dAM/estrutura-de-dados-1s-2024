@@ -18,3 +18,38 @@ int main() {
 
     Pilha *pilha = criarPilha(capacidade);
     int opcao, valor;
+
+    while (1) {
+        exibirMenu();
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Digite um valor para empilhar: ");
+                scanf("%d", &valor);
+                empilhar(pilha, valor);
+                break;
+            case 2:
+                valor = desempilhar(pilha);
+                if (valor != -1) {
+                    printf("Desempilhado: %d\n", valor);
+                }
+                break;
+            case 3:
+                valor = topo(pilha);
+                if (valor != -1) {
+                    printf("Topo: %d\n", valor);
+                }
+                break;
+            case 4:
+                destruirPilha(pilha);
+                printf("Programa encerrado.\n");
+                return 0;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+                break;
+        }
+    }
+
+    return 0;
+}
