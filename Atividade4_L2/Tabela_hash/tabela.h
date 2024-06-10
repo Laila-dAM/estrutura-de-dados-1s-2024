@@ -19,3 +19,4 @@ int search(HashTable* ht, int key);
 void delete(HashTable* ht, int key);
 void displayTable(HashTable* ht);
 void freeTable(HashTable* ht);
+#endif
