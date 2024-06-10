@@ -10,4 +10,39 @@ void menu() {
     printf("4. Sair\n");
     printf("Escolha uma opcao: ");
 }
+int main() {
+    Queue* q = createQueue();
+    int choice, value;
+
+    while (1) {
+        menu();
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Digite um valor para enfileirar: ");
+                scanf("%d", &value);
+                enqueue(q, value);
+                break;
+            case 2:
+                value = dequeue(q);
+                if (value != -1) {
+                    printf("Desenfileirado: %d\n", value);
+                }
+                break;
+            case 3:
+                displayQueue(q);
+                break;
+            case 4:
+                freeQueue(q);
+                printf("Saindo...\n");
+                exit(0);
+            default:
+                printf("Opcao invalida! Tente novamente.\n");
+        }
+    }
+
+    return 0;
+}
+
 
