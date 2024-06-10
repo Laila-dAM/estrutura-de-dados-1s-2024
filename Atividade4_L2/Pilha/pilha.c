@@ -22,3 +22,12 @@ int estaVazia(Pilha *pilha) {
 int estaCheia(Pilha *pilha) {
     return pilha->topo == pilha->capacidade - 1;
 }
+
+void empilhar(Pilha *pilha, int valor) {
+    if (estaCheia(pilha)) {
+        printf("Pilha cheia! Não é possível empilhar o valor %d.\n", valor);
+        return;
+    }
+    pilha->dados[++(pilha->topo)] = valor;
+    printf("Empilhado: %d\n", valor);
+}
