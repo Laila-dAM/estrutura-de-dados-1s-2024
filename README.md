@@ -1,4 +1,1 @@
-Atividades para a implementação das estruturas:
-1 - Pilha
-2 - Fila
-3 - Tabela hash
+Este programa em C realiza uma regressão linear simples em um conjunto de pontos fornecidos em um arquivo CSV. Ele lê os pontos do arquivo, calcula a média de x e y, determina a inclinação e interceptação da reta de regressão e exibe os resultados. Ao final, libera a memória dinamicamente.
