@@ -16,7 +16,6 @@ void enqueue(Queue* q, int value) {
         q->front = q->rear = temp;
         return;
     }
-
     q->rear->next = temp;
     q->rear = temp;
 }
@@ -34,4 +33,28 @@ int dequeue(Queue* q) {
     }
     free(temp);
     return data;
+}
+
+void displayQueue(Queue* q) {
+    Node* temp = q->front;
+    if (temp == NULL) {
+        printf("Fila vazia!\n");
+        return;
+    }
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+void freeQueue(Queue* q) {
+    Node* current = q->front;
+    Node* next;
+    while (current != NULL) {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    free(q);
 }
