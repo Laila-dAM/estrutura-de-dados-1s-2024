@@ -10,3 +10,11 @@ void exibirMenu() {
     printf("4. Sair\n");
     printf("Escolha uma opção: ");
 }
+
+int main() {
+    int capacidade;
+    printf("Digite a capacidade da pilha: ");
+    scanf("%d", &capacidade);
+
+    Pilha *pilha = criarPilha(capacidade);
+    int opcao, valor;
