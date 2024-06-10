@@ -31,3 +31,18 @@ void empilhar(Pilha *pilha, int valor) {
     pilha->dados[++(pilha->topo)] = valor;
     printf("Empilhado: %d\n", valor);
 }
+int desempilhar(Pilha *pilha) {
+    if (estaVazia(pilha)) {
+        printf("Pilha vazia! Não é possível desempilhar.\n");
+        return -1;
+    }
+    return pilha->dados[(pilha->topo)--];
+}
+
+int topo(Pilha *pilha) {
+    if (estaVazia(pilha)) {
+        printf("Pilha vazia!\n");
+        return -1;
+    }
+    return pilha->dados[pilha->topo];
+}
